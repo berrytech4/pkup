@@ -11,7 +11,7 @@ function sendPickup() {
   formData.append("class", className);
   formData.append("teacher", teacher);
 
-  fetch("https://script.google.com/macros/s/AKfycbwfSLe8k6SSOStmvrlY7zD_pDkmWQYbAqrQifWcA-UCDPS6ueXAj5VdeHeaK2nR-gHXKA/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbw3UYTFTOF97b0AjRoxGoI06lhryWGrMMGxK8K-FCy7PyMdlxYjojsKZM8zFsKVxef5/exec", {
     method: "POST",
     body: formData
   })
@@ -25,3 +25,4 @@ function sendPickup() {
   });
 
 }
+
