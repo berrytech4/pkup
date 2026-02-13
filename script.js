@@ -5,9 +5,9 @@ function sendPickup() {
   const className = document.getElementById("class").value;
   const teacher = document.getElementById("teacher").value;
 
-  const url = "https://script.google.com/macros/s/AKfycbw3UYTFTOF97b0AjRoxGoI06lhryWGrMMGxK8K-FCy7PyMdlxYjojsKZM8zFsKVxef5/exec";
+  const url = "https://script.google.com/macros/s/AKfycbxKF631nBK5pfjUkRpRAqpsapYkyUdZHiPLKVdnu1qdm6nOULI0ffeBRxsCqFSygtAgwA/exec";
 
-  const formData = new FormData();
+  const formData = new URLSearchParams();
   formData.append("parent_name", parent);
   formData.append("child_name", child);
   formData.append("class", className);
@@ -15,9 +15,14 @@ function sendPickup() {
 
   fetch(url, {
     method: "POST",
-    body: formData,
-    mode: "no-cors"
+    body: formData
+  })
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("message").innerText = data;
+  })
+  .catch(error => {
+    document.getElementById("message").innerText = "Error sending request";
+    console.log(error);
   });
-
-  document.getElementById("message").innerText = "Notification Sent!";
 }
